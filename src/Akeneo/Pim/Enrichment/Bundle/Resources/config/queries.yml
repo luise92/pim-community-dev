@@ -79,9 +79,16 @@ services:
         arguments:
         - '@database_connection'
         - '@pim_catalog.factory.value_collection'
+        - '@akeneo.pim.enrichment.product.grid.query.product_model_images_from_codes'
 
     akeneo.pim.enrichment.product.grid.query.fetch_product_rows_from_identifiers:
         class: 'Akeneo\Pim\Enrichment\Bundle\Storage\Sql\ProductGrid\FetchProductRowsFromIdentifiers'
         arguments:
         - '@database_connection'
         - '@pim_catalog.factory.value_collection'
+
+    akeneo.pim.enrichment.product.grid.query.product_model_images_from_codes:
+        class: 'Akeneo\Pim\Enrichment\Bundle\Storage\Sql\ProductGrid\ProductModelImagesFromCodes'
+        arguments:
+            - '@database_connection'
+            - '@pim_catalog.factory.value_collection'
