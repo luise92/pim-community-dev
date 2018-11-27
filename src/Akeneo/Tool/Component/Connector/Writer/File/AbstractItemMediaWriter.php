@@ -26,7 +26,7 @@ abstract class AbstractItemMediaWriter implements
     FlushableInterface,
     StepExecutionAwareInterface
 {
-    private const DEFAULT_FILE_PATH = 'filePath';
+    protected const DEFAULT_FILE_PATH = 'filePath';
 
     /** @var ArrayConverterInterface */
     protected $arrayConverter;
