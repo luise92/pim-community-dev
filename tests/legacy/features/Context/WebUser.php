@@ -65,27 +65,43 @@ class WebUser extends PimContext
     }
 
     /**
-     * @param string $type
-     *
      * @Given /^I create a product$/
+     *
+     * @throws ExpectationException
      */
     public function iCreateAProduct()
     {
-        $this->iCreateANew('Product');
-
-        $this->getCurrentPage()->pressButton('Product');
+        $this->createProductOrProductModel('Product');
     }
 
     /**
-     * @param string $type
-     *
      * @Given /^I create a product model$/
+     *
+     * @throws ExpectationException
      */
     public function iCreateAProductModel()
     {
+        $this->createProductOrProductModel('Product model');
+    }
+
+    /**
+     * @param string $type 'Product'|'Product model'
+     *
+     * @throws ExpectationException
+     */
+    private function createProductOrProductModel($type)
+    {
         $this->iCreateANew('Product');
 
-        $this->getCurrentPage()->pressButton('Product model');
+        foreach($this->getCurrentPage()->findAll('css', '.product-choice') as $productButton) {
+            if (trim($productButton->getText()) === $type) {
+                $productButton->click();
+
+                return;
+            }
+        }
+
+        throw $this->createExpectationException(sprintf('Cannot find "%s" button', $type));
     }
 
     /**
