@@ -39,6 +39,7 @@ define(
             template: _.template(template),
             choiceUrl: null,
             resultsPerPage: 20,
+            allowClear: false,
 
             /**
              * {@inheritdoc}
@@ -98,7 +99,8 @@ define(
                     },
                     initSelection: this.select2InitSelection.bind(this),
                     placeholder: undefined !== this.config.placeholder ? __(this.config.placeholder) : ' ',
-                    dropdownCssClass: ''
+                    dropdownCssClass: '',
+                    allowClear: this.allowClear,
                 };
             },
 
