@@ -1,5 +1,9 @@
 # 2.3.x
 
+## Bug fixes
+
+- PIM-7899: Norm RGPD - Hide the field "Date of Birth"
+
 # 2.3.21 (2018-12-07)
 
 ## Bug fixes
