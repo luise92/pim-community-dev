@@ -50,9 +50,7 @@ $rules = [
         // TODO: The user as a default locale and default channel and default category tree
         // TODO: A representation of the user should belong elsewhere where it is really useful to have those information
         'Akeneo\Channel\Component\Model\ChannelInterface',
-        'Akeneo\Channel\Component\Model\Channel',
         'Akeneo\Channel\Component\Model\LocaleInterface',
-        'Akeneo\Channel\Component\Model\Locale',
         'Akeneo\Channel\Component\Repository\ChannelRepositoryInterface',
         'Akeneo\Channel\Component\Repository\LocaleRepositoryInterface',
         'Akeneo\Pim\Enrichment\Component\Category\Model\CategoryInterface',
