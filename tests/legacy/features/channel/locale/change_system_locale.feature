@@ -10,7 +10,8 @@ Feature: Change system locale
 
   Scenario: Successfully change pim locale without changing current user locales
     Given I am on the System index page
-    And I select French locale
+    And I fill in the following information:
+      | Language | French (France) |
     And I save the configuration
     Then the user "Peter" should have "en" locale
     And the user "Julia" should have "en" locale
@@ -22,8 +23,41 @@ Feature: Change system locale
 
   Scenario: Successfully display a localized login form according to the system locale
     Given I am on the System index page
-    And I select French locale
+    And I fill in the following information:
+      | Language | French (France) |
     And I press the "Save" button
+    Then I should not see the text "There are unsaved changes."
+    And I logout
+    And I should see the "Connexion" button
+
+  Scenario: Successfully display a localized login form according to the system locale
+    Given I am on the System index page
+    And I fill in the following information:
+      | Language | French (France) |
+    And I wait 30 seconds
+    And I press the "Save" button
+    Then I should not see the text "There are unsaved changes."
+    And I logout
+    And I should see the "Connexion" button
+
+  Scenario: Successfully display a localized login form according to the system locale
+    Given I am on the System index page
+    And I fill in the following information:
+      | Language | French (France) |
+    And I press the "Save" button
+    And I wait 30 seconds
+    Then I should not see the text "There are unsaved changes."
+    And I logout
+    And I should see the "Connexion" button
+
+
+  Scenario: Successfully display a localized login form according to the system locale
+    Given I am on the System index page
+    And I fill in the following information:
+      | Language | French (France) |
+    And I wait 30 seconds
+    And I press the "Save" button
+    And I wait 30 seconds
     Then I should not see the text "There are unsaved changes."
     And I logout
     And I should see the "Connexion" button

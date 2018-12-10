@@ -2382,20 +2382,6 @@ class WebUser extends PimContext
     }
 
     /**
-     * @param string $language
-     *
-     * @Given /^I select (.+) (?:language|locale)$/
-     */
-    public function iSelectLanguage($language)
-    {
-        $this->spin(function () use ($language) {
-            $this->getCurrentPage()->selectFieldOption('system-locale', $language);
-
-            return true;
-        }, 'System locale field was not found');
-    }
-
-    /**
      * @param string|null $not
      * @param string      $locale
      *
